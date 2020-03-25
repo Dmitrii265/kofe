@@ -49,8 +49,12 @@
 .atm img {
   width: 100%; 
 }
+
 .change-box {
-  width: 100%; 
+  background: grey;
+  border: 3px solid black; 
+  height: 100px;
+  margin-top: 15px;
 }
 
   
