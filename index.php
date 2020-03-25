@@ -16,19 +16,19 @@
       <div class="row coffee-machine">
         <div class="col-6 coffee-list">
           <div class="row flex-column p-3 h-100 justify-content-around">
-            <div class="coffee-item col">
+            <div class="coffee-item col" onclick="buyCoffee('Американо', 50)">
               <img src="img/americano.png" alt="">
               <span>Американо - 50 руб.</span>
             </div>
-            <div class="coffee-item col">
+            <div class="coffee-item col" onclick="buyCoffee('Капучино', 78)">
               <img src="img/cappuccino.png" alt="">
               <span>Капучино - 78 руб.</span>
             </div>
-            <div class="coffee-item col">
+            <div class="coffee-item col" onclick="buyCoffee('Еспрессо', 21)">
               <img src="img/espresso.png" alt="">
               <span>Эспрессо - 21 руб.</span>
             </div>
-            <div class="coffee-item col">
+            <div class="coffee-item col" onclick="buyCoffee('Латте',115)">
               <img src="img/latte.jpg" alt="">
               <span>Латтэ - 115 руб.</span>
             </div>
@@ -49,7 +49,7 @@
             </div>
             <div class="col-6">
               <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Баланс">
+                <input type="text" class="form-control balance" placeholder="Баланс">
                 <div class="input-group-append">
                   <span class="input-group-text" id="basic-addon2">&#8381</span>
                 </div>
@@ -63,3 +63,5 @@
         </div>
       </div>
     </div>
+  <script src="script.js"></script>
+</body>
