@@ -77,7 +77,7 @@ function takeCoffee() {
   coffeeCup.classList.add("d-none");//забрать кофе--- добавление к верхнему
   coffeeCup.style.cursor = "auto";
   progressBar.style.width = "0%";
-  changeDisplayText("Выберите кофе");
+  changeDisplayText("Выберите кофе");// когда взял кофе появится выберите кофе
 }
 
   
@@ -85,4 +85,47 @@ function takeCoffee() {
 function changeDisplayText(text) {//
   displayText.innerHTML = "<span>"+text+"</span>";//
 }//
+
+
+//-------------------------Drag` n Drop тащи и клади----------//перемещение купюр
+let bills = document.querySelectorAll(".wallet img");
+
+for(let i = 0; i < bills.length; i++) {
+  bills[i].onmousedown = takeMoney;
+  
+}
+function takeMoney() {
+  event.preventDefault();// убираем призраки перетаскивания, изначально заложенные в браузере
+  let bill = this;
+  let billCost = bill.getAttribute("cost");
+ 
+  
+  bill.style.position = "absolute";
+  bill.style.transform = "rotate(90deg)";// поворот купюр
+  
+  let billCoords = bill.getBoundingClientRect();
+  let billWidth = billCoords.width;
+  let billHeight = billCoords.height;//длинна и высота
+  
+  /*console.log(billWidth, billHeight);
+  console.log(event.clientX, event.clientY);*///-----ДЛЯ ПРОСМОТРА В КОНСОЛИ------//X Y координаты
+  
+  bill.style.top = event.clientY - billWidth/2 + "px";// купюра встает по центру курсора 
+  bill.style.left = event.clientX - billHeight/2 + "px";// купюра встает по центру курсора 
+  
+  window.onmousemove = (evtnt) => {
+   bill.style.top = event.clientY - billWidth/2 + "px";
+   bill.style.left = event.clientX - billHeight/2 + "px";
+  };
+  
+  bill. onmouseup = dropMoney;
+}
+
+function dropMoney() {
+  window.onmousemove = null;
+  
+}
+
+
+
  
