@@ -7,7 +7,22 @@ let progressBar = document.querySelector(".progress-bar");//
 let coffeeCup = document.querySelector(".coffee-cup img");//
 let coffeeStatus = "waiting"; /*
 "cooking", "reddy"*/
+coffeeCup.onclick = takeCoffee;// повесить событие как свойсво, -забрать кофе первый вариант, ниже добавление
 
+/*coffeeCup.addEventListener("click", takeCoffee, par1, par2)//-второй вариант
+coffeeCup.addEventListener("click", takeCoffee, par1, par2)
+coffeeCup.addEventListener("click", takeCoffee, par1, par2)
+coffeeCup.addEventListener("click", takeCoffee, par1, par2)
+
+coffeeCup.addEventListener("click", buyCoffee, "Американо", 21)*/
+
+
+/*coffeeCup.onclick = function() {
+  takeCoffee();
+}*/ // 
+/*coffeeCup.onclick = function() {
+  takeCoffee(this);
+}*/ // 2 вариант забрать кофе
 
 function buyCoffee(name, cost, elem) {//
    if (coffeeStatus != "waiting") {//
@@ -54,7 +69,19 @@ function cookCoffee(name, elem) {//
   }, 100);//
 }//
 
+function takeCoffee() {
+  if (coffeeStatus != "ready") {
+    return;
+  }// что б не бралось кофе, когда готовится  
+  coffeeStatus = "waiting";
+  coffeeCup.classList.add("d-none");//забрать кофе--- добавление к верхнему
+  coffeeCup.style.cursor = "auto";
+  progressBar.style.width = "0%";
+  changeDisplayText("Выберите кофе");
+}
 
+  
+  
 function changeDisplayText(text) {//
   displayText.innerHTML = "<span>"+text+"</span>";//
 }//
