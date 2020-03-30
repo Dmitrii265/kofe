@@ -57,4 +57,11 @@
   margin-top: 15px;
 }
 
-  
+.wallet img {
+  cursor: pointer;
+  width: 20%;/*размер купюр*/
+}
+
+.change-box {
+position: relative;
+}
