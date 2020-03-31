@@ -178,12 +178,41 @@ function inAtm(bill) {
   
  let changeBtn = document.querySelector(".change");//btn - сокращенно Bottom//
  changeBtn.onclick = takeChange;
+
  
  function takeChange() {
-  
-   tossCoin("10");
    
- }
+   if (balance.value <= 0) {
+    changeBtn.onclick = takeChange; 
+   return;
+  }
+  changeBtn.onclick = null;
+  if (balance.value -10 >= 0) {
+    setTimeout(() => {//звук
+      tossCoin("10");
+      balance.value -= 10; 
+      return takeChange();//звук
+    }, 300);// Выдача сдачи по 10//
+  } else if (balance.value -5 >= 0) {
+    setTimeout(() => {
+      tossCoin("5");
+      balance.value -= 5; 
+      return takeChange();
+    }, 300);// Выдача сдачи по 5//
+  } else if (balance.value -2 >= 0) {
+    setTimeout(() => {
+      tossCoin("2");
+      balance.value -= 2; 
+      return takeChange();
+    }, 300);// Выдача сдачи по 2//
+  } else if (balance.value -1 >= 0) {
+    setTimeout(() => {
+      tossCoin("1");
+      balance.value -= 1; 
+      return takeChange();
+    }, 300);// Выдача сдачи по 1//
+  }
+}
   function tossCoin(cost) { 
     let changeContainer = document.querySelector(".change-box")
     let changeContainerCoords =  changeContainer.getBoundingClientRect();
@@ -216,6 +245,7 @@ function inAtm(bill) {
   coin.style.display = "inline-block";
   coin.style.position = "absolute";
   
+  
   changeContainer.append(coin); //прикрепить после внутри элемента
   /*changeContainer.prepend(coin);//прикрепить до внутри элемента
   changeContainer.after(coin); //после контейнера
@@ -227,7 +257,9 @@ function inAtm(bill) {
   
   coin.onclick = () => coin.remove();
   
-  
+  let coinSound = new Audio("sound/coindrop.mp3");
+  //coinSound.src = "sound/coindrop.mp3"// ---второй вариант добавления звука---
+   coinSound.play();// ----------ЗВУК МОНЕТ-----------//
   
   
 }
