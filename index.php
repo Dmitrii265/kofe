@@ -11,7 +11,8 @@
 
     <title>Кофе-машина</title>
   </head>
-  <body>
+  <body style="background-color:indigo">>
+  
     <div class="container">
       <div class="row coffee-machine">
         <div class="col-6 coffee-list">
