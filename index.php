@@ -12,7 +12,7 @@
     <title>Кофе-машина</title>
   </head>
   <body style="background-color:indigo">>
-  
+   
     <div class="container">
       <div class="row coffee-machine">
         <div class="col-6 coffee-list">
@@ -39,7 +39,7 @@
           <div class="row p-3">
             <div class="col-6">
               <div class="display">
-                <p class="display-text">Выберите кофе</p>
+                <p class="display-text">Выберите себе кофе </p>
                 <div class="progress">
                   <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
                 </div>
